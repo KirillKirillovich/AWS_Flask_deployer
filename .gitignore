@@ -1,0 +1,13 @@
+# Ignore everything:
+*
+
+# Do not ignore these files:
+!README.md
+!.gitignore
+
+#do not ignore some terraform files
+!terraform/
+terraform/*
+!terraform/main.tf
+!terraform/outputs.tf
+!terraform/variables.tf
