@@ -37,3 +37,11 @@ resource "aws_instance" "web_server" {
     Environment = each.value
   }
 }
+
+resource "aws_s3_bucket" "bucket_logs_storage" {
+  bucket = "aws-flask-deployer-logs"
+
+  tags = {
+    Name        = "logs storage"
+  }
+}
