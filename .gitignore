@@ -4,6 +4,7 @@
 # Do not ignore these files:
 !README.md
 !.gitignore
+!docker-compose.yaml
 
 #do not ignore some terraform files
 !terraform/
@@ -11,3 +12,13 @@ terraform/*
 !terraform/main.tf
 !terraform/outputs.tf
 !terraform/variables.tf
+
+#do not ignore main app
+!app/
+app/*
+!app/files/
+app/files/*
+!app/files/index.html
+!app/app.py
+!app/Dockerfile
+!app/requirements.txt
