@@ -35,10 +35,10 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Debug SSH Key
-      run: echo "${{secrets.AWS_SSH_PRIVATE_KEY}}" | head -c 10
+      run: echo -n "${{ secrets.AWS_SSH_PRIVATE_KEY }}" | xxd -ps
 
     - name: Debug Inventory
-      run: echo "${{secrets.AWS_INVENTORY}}"
+      run: echo -n "${{ secrets.AWS_INVENTORY }}" | xxd -ps
 
     - name: Run playbook
       uses: dawidd6/action-ansible-playbook@v2
