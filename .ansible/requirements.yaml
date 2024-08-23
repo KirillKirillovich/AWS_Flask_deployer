@@ -1,0 +1,7 @@
+- src: git+https://github.com/KirillKirillovich/ansible_roles.git
+  version: origin/ansible_role_docker
+  name: docker
+  
+- src: git+https://github.com/KirillKirillovich/ansible_roles.git
+  version: origin/ansible_role_build_image
+  name: build_image

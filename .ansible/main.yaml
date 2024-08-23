@@ -1,0 +1,7 @@
+---
+- name: Set up instance with docker and project
+  hosts: [all]
+  become: yes
+  roles:
+    - docker
+    - build_app

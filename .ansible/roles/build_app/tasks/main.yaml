@@ -1,0 +1,37 @@
+---
+- name: Create a Docker network if it doesn't exist
+  docker_network:
+    name: "{{ docker_network }}"
+    state: present
+
+- name: Pull the Flask app image from Docker Hub
+  docker_image:
+    name: "{{ dockerhub_app_image }}"
+    source: pull
+
+- name: Pull the Nginx image from Docker Hub
+  docker_image:
+    name: "{{ dockerhub_server_image }}"
+    source: pull
+
+- name: Run the Flask app container
+  docker_container:
+    name: flask-app
+    image: "{{ dockerhub_app_image }}"
+    state: started
+    restart_policy: always
+    networks:
+      - name: "{{ docker_network }}"
+    published_ports:
+      - "5000:5000"
+
+- name: Run server
+  docker_container:
+    name: flask-server
+    image: "{{ dockerhub_server_image }}"
+    state: started
+    restart_policy: always
+    networks:
+      - name: "{{ docker_network }}"
+    published_ports:
+      - "80:80"
