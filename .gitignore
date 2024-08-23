@@ -3,3 +3,6 @@ terraform/.terraform
 terraform/.terraform.lock.hcl
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
+app/__pycache__
+app/.pytest_cache
+app/tests/__pycache__
