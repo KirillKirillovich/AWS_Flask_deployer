@@ -30,7 +30,6 @@ jobs:
   build:
     needs: push_to_registry
     runs-on: ubuntu-latest
-    environment: STAGE
     steps:
     - name: checkout code
       uses: actions/checkout@v4
@@ -42,7 +41,7 @@ jobs:
         configuration: |
           [defaults]
           host_key_checking = false
-        key: ${{secrets.AWS_SSH_PRIAVATE_KEY}}
+        key: ${{secrets.AWS_SSH_PRIVATE_KEY}}
         inventory: |
           ${{secrets.AWS_INVENTORY}}
         options: |
