@@ -17,6 +17,7 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
+
 @app.route('/')
 def return_content():
     app.logger.info("Request received at /")
