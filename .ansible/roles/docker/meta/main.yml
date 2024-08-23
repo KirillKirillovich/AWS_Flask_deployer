@@ -1,0 +1,6 @@
+galaxy_info:
+  author: own
+  description: Setup docker and docker-compose
+  min_ansible_version: 2.1
+
+dependencies: []

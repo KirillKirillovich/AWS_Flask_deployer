@@ -1,0 +1,71 @@
+---
+- name: Update APT package index
+  apt:
+    update_cache: yes
+
+- name: Install required packages
+  apt:
+    name: 
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - python3-pip
+    state: present
+
+- name: Add Docker's official GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker repository
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+    state: present
+
+- name: Install Docker
+  apt:
+    name: 
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: "{{ docker_version }}"
+
+- name: Ensure Docker service is running
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Add current user to the docker group
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes
+
+- name: Install Docker Compose
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+    dest: "{{ docker_compose_bin_path }}"
+    mode: '0755'
+
+- name: Install Docker Python SDK
+  pip:
+    name: docker
+    state: present
+
+- name: Check Docker version
+  command: docker --version
+  register: docker_version_output
+
+- name: Display Docker version
+  debug:
+    msg: "{{ docker_version_output.stdout }} installed"
+
+- name: Check Docker Compose version
+  command: docker-compose --version
+  register: docker_compose_version_output
+
+- name: Display Docker Compose version
+  debug:
+    msg: "{{ docker_compose_version_output.stdout }} installed"

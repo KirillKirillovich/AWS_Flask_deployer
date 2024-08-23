@@ -1,0 +1,8 @@
+---
+- name: Ping the instances for test
+  hosts: [all]
+  become: yes
+
+  tasks:
+    - name: Example from an Ansible Playbook
+      ping:

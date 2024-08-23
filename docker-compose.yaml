@@ -1,5 +1,15 @@
 services:
-  app:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+
+
+  flask-app:
     build:
       context: ./app
       dockerfile: Dockerfile

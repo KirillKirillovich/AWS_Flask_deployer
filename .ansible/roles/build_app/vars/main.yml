@@ -1,0 +1,3 @@
+dockerhub_app_image: "kirillkirillovich/aws_flask_app:latest"
+dockerhub_server_image: "kirillkirillovich/aws_flask_server:latest"
+docker_network: "aws-flask-net"

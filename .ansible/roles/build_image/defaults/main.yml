@@ -1,0 +1,7 @@
+---
+docker_image_name: "your-dockerhub-username/your-repository"
+docker_image_tag: "latest"
+docker_build_path: "path/to/dockerfile"
+dockerhub_username: "your-dockerhub-username"
+dockerhub_token: "your-dockerhub-token"
+dockerhub_repo: "your-repository"
