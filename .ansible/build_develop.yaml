@@ -2,5 +2,4 @@
   hosts: "{{ AWS_INSTANCE }}"
   remote_user: "ubuntu"
   roles:
-    - git_pull
-    - docker_restart
+    - build_app

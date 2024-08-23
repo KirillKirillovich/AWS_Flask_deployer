@@ -19,6 +19,7 @@
     name: flask-app
     image: "{{ dockerhub_app_image }}"
     state: started
+    recreate: true
     restart_policy: always
     networks:
       - name: "{{ docker_network }}"
@@ -30,6 +31,7 @@
     name: flask-server
     image: "{{ dockerhub_server_image }}"
     state: started
+    recreate: true
     restart_policy: always
     networks:
       - name: "{{ docker_network }}"
