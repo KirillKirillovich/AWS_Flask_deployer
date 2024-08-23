@@ -28,7 +28,12 @@ USAGE(in progress):
 
 1) git clone https://github.com/KirillKirillovich/AWS_Flask_deployer.git
 2) cd AWS_Flask_deployer/terraform
-3) 
+3) add your aws creds to main.tf: <br>
+  access_key = "your_aws_access_key" <br>
+  secret_key = "your_aws_secret_key"
+4) add you key pair name inside variables.tf: <br>
+   default     = "key_name"
+5) 
  ```
 terraform init
 terraform plan (check)

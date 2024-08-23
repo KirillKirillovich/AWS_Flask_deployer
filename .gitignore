@@ -6,3 +6,4 @@ terraform/terraform.tfstate.backup
 app/__pycache__
 app/.pytest_cache
 app/tests/__pycache__
+.ansible/roles/build_image/meta/.galaxy_install_info
