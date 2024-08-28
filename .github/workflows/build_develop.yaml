@@ -40,8 +40,7 @@ jobs:
         playbook: .ansible/build_develop.yaml
         key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
         inventory: |
-          [staging]
-          my_stage_instance ansible_host=${{ secrets.AWS_STAGING_PUBLIC_IP }}
+          ${{ secrets.AWS_INVENTORY }}
         options: |
           -e AWS_INSTANCE=my_stage_instance
           -e AWS_USER=ubuntu
