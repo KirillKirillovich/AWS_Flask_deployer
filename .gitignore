@@ -7,3 +7,5 @@ app/__pycache__
 app/.pytest_cache
 app/tests/__pycache__
 .ansible/roles/build_image/meta/.galaxy_install_info
+.ansible/roles/docker/meta
+.ansible/roles/docker/meta/.galaxy_install_info
