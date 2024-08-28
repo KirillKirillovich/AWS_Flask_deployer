@@ -40,7 +40,7 @@ jobs:
         rm -rf .ansible/group_vars
         rm .ansible/hosts.yml
         cd .ansible
-        ll
+        ls -la
 
 
     - name: Run playbook
