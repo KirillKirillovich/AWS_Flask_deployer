@@ -3,5 +3,6 @@
   remote_user: "{{AWS_USER}}"
   roles:
     - build_app
+    - build_image
 
     
