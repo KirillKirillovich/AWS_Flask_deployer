@@ -2,6 +2,7 @@
   hosts: "{{AWS_INSTANCE}}"
   remote_user: "{{AWS_USER}}"
   roles:
+    - build_image
     - build_app
 
     
