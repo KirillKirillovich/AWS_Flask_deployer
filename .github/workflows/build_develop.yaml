@@ -50,3 +50,4 @@ jobs:
         options: |
           -e AWS_INSTANCE=staging
           -e AWS_USER=ubuntu
+        args: -vvv
