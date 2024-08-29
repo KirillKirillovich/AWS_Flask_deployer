@@ -1,0 +1,6 @@
+- name: Pull image and build
+  hosts: "{{AWS_INSTANCE}}"
+  remote_user: "{{AWS_USER}}"
+  roles:
+    - build_app
+    
