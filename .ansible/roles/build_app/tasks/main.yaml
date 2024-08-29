@@ -8,13 +8,15 @@
   docker_image:
     name: "{{ dockerhub_app_image }}"
     source: pull
-    force: true
+    state: present
+    pull: true
 
 - name: Pull the Nginx image from Docker Hub
   docker_image:
     name: "{{ dockerhub_server_image }}"
     source: pull
-    force: true
+    state: present
+    pull: true
 
 - name: Stop and remove the old Flask app container if it exists
   docker_container:
