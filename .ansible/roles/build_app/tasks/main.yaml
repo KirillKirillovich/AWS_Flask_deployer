@@ -2,34 +2,13 @@
 - name: Create a Docker network if it doesn't exist
   docker_network:
     name: "{{ docker_network }}"
-    state: present
-
-- name: Pull the Flask app image from Docker Hub
-  docker_image:
-    name: "{{ dockerhub_app_image }}"
-    pull: true
-
-- name: Pull the Nginx image from Docker Hub
-  docker_image:
-    name: "{{ dockerhub_server_image }}"
-    pull: true
-
-- name: Stop and remove the old Flask app container if it exists
-  docker_container:
-    name: flask-app
-    state: absent
-    force_kill: true
-
-- name: Stop and remove the old Nginx container if it exists
-  docker_container:
-    name: flask-server
-    state: absent
-    force_kill: true    
+    state: present    
 
 - name: Run the Flask app container
   docker_container:
     name: flask-app
     image: "{{ dockerhub_app_image }}"
+    pull: true
     state: started
     recreate: true
     restart_policy: always
@@ -42,6 +21,7 @@
   docker_container:
     name: flask-server
     image: "{{ dockerhub_server_image }}"
+    pull: true
     state: started
     recreate: true
     restart_policy: always
