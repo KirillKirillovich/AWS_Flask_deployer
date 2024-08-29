@@ -1,10 +1,10 @@
-name: Build image and deploy to develop
+name: Build image and deploy to main
 run-name: Run CD to dev - ${{ github.event_name }} on ${{ github.ref_name }}
 
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   push_to_registry:
@@ -48,5 +48,5 @@ jobs:
         inventory: |
           ${{ secrets.AWS_INVENTORY }}
         options: |
-          -e AWS_INSTANCE=staging
+          -e AWS_INSTANCE=production
           -e AWS_USER=ubuntu
